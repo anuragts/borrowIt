@@ -10,9 +10,25 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model Borroweditem{
+  id BigInt @id @default(autoincrement())
+  name String
+  date DateTime
+  user User @relation(fields: [userId], references: [id])
+  userId BigInt
+}
+model Lenditem{
+  id BigInt @id @default(autoincrement())
+  name String
+  date DateTime
+  user User @relation(fields: [userId], references: [id])
+  userId BigInt
+}
 model User {
   id       BigInt  @id @default(autoincrement())
   email    String  @unique
   name     String?
   password String
+  borroweditem Borroweditem[]
+  lenditem Lenditem[]
 }
