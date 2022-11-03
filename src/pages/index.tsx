@@ -11,7 +11,7 @@ export default function Home() {
       </Head>
 
       <main className="">
-        <div>
+        <div className='text-3xl font-bold '>
           Hello World
         </div>
        </main>
